@@ -42,30 +42,59 @@ require_once("map_english.php");
             z-index: 100;
         }
         #info_bottom { position: absolute; top: 20px; width: 100%; text-align: center; z-index: 101; }
-        #server_info { 
-            font-family: 'K_Quest', sans-serif; 
-            font-size: 22px; 
-            color: #FFFF99; 
-            text-shadow: 1px 1px 2px #000; 
+        #server_info {
+            font-family: 'K_Quest', sans-serif;
+            font-size: 22px;
+            text-shadow: 1px 1px 2px #000;
             display: inline-flex;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid #EABA28;
+            gap: 15px; /* Add space between the boxes */
+        }
+        #server_info span {
+            cursor: pointer;
+            transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+            padding: 8px 20px;
             border-radius: 5px;
-            padding: 5px;
-            box-shadow: 0 0 10px rgba(234, 186, 40, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
         }
-        #server_info span { 
-            color: #EABA28; 
-            cursor: pointer; 
-            transition: color 0.3s, background-color 0.3s;
-            padding: 8px 15px;
-            border-radius: 3px;
-            margin: 0 5px;
-        }
-        #server_info span:hover { color: #FFF; }
-        #server_info span.active {
+        #server_info span:hover {
             color: #FFF;
-            background-color: rgba(234, 186, 40, 0.3);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+        }
+
+        /* --- Map Specific Colors --- */
+        /* Azeroth (Yellow) */
+        #server_info span:nth-child(1) {
+            color: #FFFF99;
+            border-color: #EABA28;
+        }
+        #server_info span:nth-child(1).active {
+            color: #FFF;
+            background-color: rgba(234, 186, 40, 0.4);
+            box-shadow: 0 0 15px rgba(234, 186, 40, 0.7);
+        }
+
+        /* Outland (Green) */
+        #server_info span:nth-child(2) {
+            color: #AAD372;
+            border-color: #2E8B57;
+        }
+        #server_info span:nth-child(2).active {
+            color: #FFF;
+            background-color: rgba(46, 139, 87, 0.4);
+            box-shadow: 0 0 15px rgba(46, 139, 87, 0.7);
+        }
+
+        /* Northrend (Blue) */
+        #server_info span:nth-child(3) {
+            color: #3FC7EB;
+            border-color: #0070DD;
+        }
+        #server_info span:nth-child(3).active {
+            color: #FFF;
+            background-color: rgba(0, 112, 221, 0.4);
+            box-shadow: 0 0 15px rgba(0, 112, 221, 0.7);
         }
         #tip { position: absolute; border: 1px solid #EABA28; background: rgba(0,0,0,0.8); color: #FFF; padding: 5px 10px; border-radius: 3px; display: none; z-index: 200; }
         .player-dot {
